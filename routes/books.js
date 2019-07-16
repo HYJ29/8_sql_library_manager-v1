@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const {makeAllLowerCase} = require('../customModules/dataBeautify');
 const Book = require('../models').Book;
 
 //routers for create-new-book page
@@ -9,12 +10,12 @@ router.get('/new', (req,res) =>{
 
 //router for post now book
 router.post('/new', (req,res) =>{
-  Book.create(req.body).then(function(book){
+  Book.create(makeAllLowerCase(req.body)).then(function(book){
     res.redirect('/');
   }).catch(function(err){
     if(err.name==="SequelizeValidationError"){
       res.render('new-book',{
-        book:Book.build(),
+        book:req.body, //when errors, remain the input fields value 
         errors:err.errors
       });
     } else {
@@ -39,7 +40,7 @@ router.get('/:id', (req,res) =>{
 router.put('/:id', (req,res) =>{
   Book.findByPk(req.params.id).then(function(book){
     book.update(req.body).then(function(book){
-      res.redirect(`/books/${book.id}`);
+      res.redirect(`/`);
     });
   }).catch(function(err){
     res.sendStatus(500);

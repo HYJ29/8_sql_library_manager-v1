@@ -41,10 +41,8 @@ app.use((req,res,next)=>{
 //err handler module
 app.use((err,req,res,next)=>{
   if(err.status === 404){
-    console.log(err.message);
     res.render('page-not-found');
   } else {
-    console.log(err.message);
     res.render('error');
   }
   next();
