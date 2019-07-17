@@ -1,0 +1,4 @@
+ul.pageLinkContainer
+  while n <= maxPage
+    li.pageLink 
+      a(href=`${currentUrl}pageNum=${n}`)= n++
