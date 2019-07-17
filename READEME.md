@@ -6,7 +6,7 @@
 3.Put 'total books' to see how many books are in the database or searched result
 
 # issues 
-1. about seeder file 
+## 1. about seeder file 
 
 I think in the library.db, It has some seed datas in it. But before I realized it, 
 I thought I had to implement some seed data. 
@@ -14,6 +14,7 @@ So I excuted just like below(deleted original seed and applied my seed file) and
 but I’m curious why it doesn’t work well. 
 
 ————define data-----------------
+
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Book = sequelize.define('Book', {
@@ -29,6 +30,7 @@ module.exports = (sequelize, DataTypes) => {
 };
 
 ——————seeder file------------------
+
 'use strict';
 
 module.exports = {
@@ -63,6 +65,7 @@ module.exports = {
 };
 
 ——————error———————
+
 Executing (default): SELECT `id`, `title`, `author`, `genre`, `year`, `createdAt`, `updatedAt` FROM `Books` AS `Book` ORDER BY `Book`.`title` DESC;
 Unhandled rejection TypeError: date.includes is not a function
     at parse (/Users/hyj/Documents/GitHub/8/sql_library_manager-v1/node_modules/sequelize/lib/dialects/sqlite/data-types.js:54:17)
@@ -82,7 +85,7 @@ Unhandled rejection TypeError: date.includes is not a function
 
 
 
-2. endless logging error 
+## 2. endless logging error 
 
 I’m trying to make error handler which render error page and log the error on the console.
 But when I put the code “console.log(err.message);” on the error handler, it keeps logging “Not Found” which is err message defined just previous module. The  logging never end… and I don’t know what’s happening here
