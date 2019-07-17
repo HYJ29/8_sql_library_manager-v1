@@ -1,6 +1,13 @@
 body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   padding: 10px 50px 50px;
   font: 18px "Garamond", serif;
+}
+
+h1 {
+
 }
 
 a {
@@ -94,4 +101,26 @@ input[type=text] {
 
 .error {
   color: rgb(236, 15, 15);
+}
+
+#searchTerm {
+  margin-left: 0;
+}
+
+.pageLinkContainer {
+  display: flex;
+  justify-content: center;
+}
+.pageLink {
+  display:inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.pageLink:hover {
+  cursor: pointer;
+}
+
+.searchFormContainer {
+  display: flex;
+  justify-content: center;
 }

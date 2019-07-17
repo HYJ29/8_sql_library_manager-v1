@@ -1,0 +1,9 @@
+form(class='searchFormContainer',action='/', method='get')
+  input(name='searchTerm', type='text')
+  select(name='searchOn')
+    option(value='all') All
+    option(value='title') Title
+    option(value='author') Author
+    option(value='genre') Genre
+    option(value='year') Year
+  input#searchTerm(type='submit', value='Search')
