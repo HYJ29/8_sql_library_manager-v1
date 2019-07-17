@@ -5,6 +5,7 @@ block content
     include searchForm
     p
       a.button(href='/books/new') Create New Book
+    p= `total books ${(searchTerm)? `(searched:${searchTerm})`:''}: ${totalBook}` 
     table
       thead
         tr
