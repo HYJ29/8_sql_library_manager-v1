@@ -26,10 +26,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //method overide
 app.use(methodOverride('_method'));
 
-
 //routing
 app.use('/',routes);
 app.use('/books',books);
+
 
 //catch 404 and forward to error handler
 app.use((req,res,next)=>{
@@ -41,10 +41,11 @@ app.use((req,res,next)=>{
 //err handler module
 app.use((err,req,res,next)=>{
   if(err.status === 404){
-    //console.log(err.message);
     res.render('page-not-found');
+    console.log('Not found:',req.url);
   } else {
     res.render('error');
+    console.log('Somthing went wrong on server side')
   }
   next();
 });
