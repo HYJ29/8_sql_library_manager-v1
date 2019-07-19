@@ -1,17 +1,17 @@
 # general
-1. npm install, npm start would launch the server on localhost:3000 
+1. npm install, npm start would launch the server on localhost:3000
 
-2.Pagination & searching function on routes/index/js 
+2.Pagination & searching function on routes/index/js
 
 3.Put 'total books' to see how many books are in the database or searched result
 
-# issues 
-## 1. about seeder file 
+# issues
+## 1. about seeder file
 
-I think in the library.db, It has some seed datas in it. But before I realized it, 
-I thought I had to implement some seed data. 
-So I excuted just like below(deleted original seed and applied my seed file) and had some error, It’s is not needed to accomplish this assignment, 
-but I’m curious why it doesn’t work well. 
+I think in the library.db, It has some seed datas in it. But before I realized it,
+I thought I had to implement some seed data.
+So I excuted just like below(deleted original seed and applied my seed file) and had some error, It’s is not needed to accomplish this assignment,
+but I’m curious why it doesn’t work well.
 
 ————define data-----------------
 
@@ -85,12 +85,12 @@ Unhandled rejection TypeError: date.includes is not a function
 
 
 
-## 2. endless logging error 
+## 2. endless logging error
 
 I’m trying to make error handler which render error page and log the error on the console.
 But when I put the code “console.log(err.message);” on the error handler, it keeps logging “Not Found” which is err message defined just previous module. The  logging never end… and I don’t know what’s happening here
 
-below is the code concerned 
+below is the code concerned
 
 //catch 404 and forward to error handler
 app.use((req,res,next)=>{

@@ -40,6 +40,15 @@ router.put('/:id', (req,res,next) =>{
   Book.findByPk(req.params.id).then(function(book){
     book.update(req.body).then(function(book){
       res.redirect(`/`);
+    }).catch(function(err){
+      if(err.name==="SequelizeValidationError"){
+        res.render('update-book',{
+          book:Object.assign(book,req.body), //when errors, remain the input fields value
+          errors:err.errors
+        });
+      } else {
+        throw err;
+      }
     });
   }).catch(function(err){
     next(err);
